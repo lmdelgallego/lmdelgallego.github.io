@@ -1,1 +1,0 @@
-# lmdelgallego.github.io
