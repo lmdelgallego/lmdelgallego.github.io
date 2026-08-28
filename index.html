@@ -52,12 +52,36 @@
             <span></span><span></span><span></span>
         </button>
         <div class="nav__links" id="navLinks">
-            <a href="#about"><span class="idx">01</span>About</a>
-            <a href="#experience"><span class="idx">02</span>Experience</a>
-            <a href="#skills"><span class="idx">03</span>Skills</a>
-            <a href="#contact"><span class="idx">04</span>Contact</a>
+            <a class="nav-link" href="#about"><span class="idx">01</span>About</a>
+            <a class="nav-link" href="#experience"><span class="idx">02</span>Experience</a>
+            <a class="nav-link" href="#skills"><span class="idx">03</span>Skills</a>
+            <a class="nav-link" href="#contact"><span class="idx">04</span>Contact</a>
         </div>
     </nav>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar__top">
+            <a class="sidebar__brand" href="#top">
+                <span class="sidebar__name">Luis Miguel<br>Del Gallego Horta</span>
+                <span class="sidebar__role">Lead Software Engineer</span>
+            </a>
+            <nav class="sidebar__nav">
+                <a class="nav-link" href="#about"><span class="idx">01</span>About</a>
+                <a class="nav-link" href="#experience"><span class="idx">02</span>Experience</a>
+                <a class="nav-link" href="#skills"><span class="idx">03</span>Skills</a>
+                <a class="nav-link" href="#contact"><span class="idx">04</span>Contact</a>
+            </nav>
+        </div>
+        <div class="sidebar__bottom">
+            <p class="sidebar__status"><span class="dot"></span>Currently @ N-iX · Bogotá, Colombia</p>
+            <div class="sidebar__social">
+                <a href="mailto:lmdelgallego@gmail.com" aria-label="Email">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/luis-miguel-del-gallego-horta/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+            </div>
+        </div>
+    </aside>
 
     <main id="top">
         <header class="hero">
@@ -110,7 +134,7 @@
             </div>
         </section>
 
-        <section id="experience" class="section reveal">
+        <section id="experience" class="section">
             <div class="section__head">
                 <span class="section__num">02</span>
                 <h2>Experience</h2>
@@ -265,37 +289,37 @@
                 <p class="section__sub">$ cat skills.json</p>
             </div>
             <div class="skills">
-                <div class="skill-group">
+                <div class="skill-tile skill-tile--lg">
                     <h3>Frontend</h3>
                     <div class="tags">
                         <span>Angular</span><span>React</span><span>Vue</span><span>Next.js</span><span>TypeScript</span><span>JavaScript</span><span>HTML</span><span>CSS</span><span>Sass</span><span>Ionic</span><span>Three.js</span><span>Tailwind CSS</span><span>Shadcn/ui</span><span>react-hook-form</span><span>Zod</span>
                     </div>
                 </div>
-                <div class="skill-group">
+                <div class="skill-tile skill-tile--wide">
                     <h3>Backend &amp; Data</h3>
                     <div class="tags">
                         <span>Node.js</span><span>NestJS</span><span>Python</span><span>PHP</span><span>Java</span><span>.NET</span><span>JSF</span><span>MySQL</span><span>MongoDB</span><span>PostgreSQL</span><span>Supabase</span><span>better-auth</span>
                     </div>
                 </div>
-                <div class="skill-group">
+                <div class="skill-tile">
                     <h3>Architecture &amp; Design Systems</h3>
                     <div class="tags">
                         <span>Micro-frontends</span><span>Single-SPA</span><span>Storybook</span><span>Stencil</span><span>Web Components</span><span>Nx Monorepo</span>
                     </div>
                 </div>
-                <div class="skill-group">
+                <div class="skill-tile">
                     <h3>Cloud &amp; Delivery</h3>
                     <div class="tags">
                         <span>AWS</span><span>GCP</span><span>Docker</span><span>Linux</span><span>GitHub Actions</span><span>Jenkins</span><span>Webpack</span><span>Git</span><span>CI/CD</span>
                     </div>
                 </div>
-                <div class="skill-group">
+                <div class="skill-tile skill-tile--accent">
                     <h3>AI &amp; Agentic Coding</h3>
                     <div class="tags">
                         <span>OpenAI API</span><span>Anthropic API</span><span>Claude Code</span><span>Codex</span>
                     </div>
                 </div>
-                <div class="skill-group">
+                <div class="skill-tile">
                     <h3>Leadership</h3>
                     <div class="tags">
                         <span>Agile delivery</span><span>Team leadership</span><span>Sprint planning</span><span>Code review</span><span>Mentoring</span><span>Continuous improvement</span>
