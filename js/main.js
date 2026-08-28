@@ -24,9 +24,9 @@
         });
     });
 
-    /* ---- active nav link on scroll ---- */
+    /* ---- active nav link on scroll (top bar + desktop sidebar) ---- */
     var sections = Array.prototype.slice.call(document.querySelectorAll("main section[id]"));
-    var navAnchors = Array.prototype.slice.call(navLinks.querySelectorAll("a"));
+    var navAnchors = Array.prototype.slice.call(document.querySelectorAll(".nav-link"));
 
     var navObserver = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
