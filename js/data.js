@@ -125,12 +125,13 @@ var SITE_DATA = {
         stackNote: "Earlier stack: .NET, JSF, PHP, JavaScript, Java, Flash/ActionScript, MySQL, HTML, CSS."
     },
 
-    // "size" controls the bento tile: "lg" (2 cols x 2 rows), "wide" (2 cols),
-    // "accent" (highlighted as a differentiator), or omit for a plain 1x1 tile.
+    // "size" controls the bento tile: space-separated tokens from
+    // "full" (all 4 cols, 1 row), "wide" (2 cols), "accent" (rust
+    // differentiator callout). Omit for a plain 1x1 tile.
     skills: [
         {
             name: "Frontend",
-            size: "lg",
+            size: "full",
             tags: ["Angular", "React", "Vue", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS", "Sass", "Ionic", "Three.js", "Tailwind CSS", "Shadcn/ui", "react-hook-form", "Zod"]
         },
         {
@@ -148,11 +149,12 @@ var SITE_DATA = {
         },
         {
             name: "AI &amp; Agentic Coding",
-            size: "accent",
+            size: "wide accent",
             tags: ["OpenAI API", "Anthropic API", "Claude Code", "Codex"]
         },
         {
             name: "Leadership",
+            size: "wide",
             tags: ["Agile delivery", "Team leadership", "Sprint planning", "Code review", "Mentoring", "Continuous improvement"]
         }
     ]

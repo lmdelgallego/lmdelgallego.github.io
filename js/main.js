@@ -61,7 +61,7 @@
         var grid = document.getElementById("skillsGrid");
         if (!grid || !window.SITE_DATA) return;
         grid.innerHTML = SITE_DATA.skills.map(function (group) {
-            var sizeClass = group.size ? " skill-tile--" + group.size : "";
+            var sizeClass = group.size ? group.size.split(" ").map(function (s) { return " skill-tile--" + s; }).join("") : "";
             var tags = group.tags.map(function (t) { return "<span>" + t + "</span>"; }).join("");
             return '<div class="skill-tile' + sizeClass + '"><h3>' + group.name + '</h3><div class="tags">' + tags + '</div></div>';
         }).join("");
@@ -95,9 +95,32 @@
     var navToggle = document.getElementById("navToggle");
     var navLinks = document.getElementById("navLinks");
 
+    /* ---- scroll progress (nav bar + desktop sidebar) ---- */
+    var navProgress = document.getElementById("navProgress");
+    var sidebarProgress = document.getElementById("sidebarProgress");
+
+    function updateScrollProgress() {
+        var track = document.documentElement.scrollHeight - window.innerHeight;
+        var fraction = track > 0 ? Math.min(Math.max(window.scrollY / track, 0), 1) : 0;
+        if (navProgress) navProgress.style.transform = "scaleX(" + fraction + ")";
+        if (sidebarProgress) sidebarProgress.style.transform = "scaleY(" + fraction + ")";
+    }
+
     window.addEventListener("scroll", function () {
         nav.classList.toggle("is-scrolled", window.scrollY > 8);
+        updateScrollProgress();
     }, { passive: true });
+    window.addEventListener("resize", updateScrollProgress);
+    updateScrollProgress();
+
+    /* ---- cursor spotlight on cards ---- */
+    Array.prototype.forEach.call(document.querySelectorAll(".skill-tile, .commit__card"), function (card) {
+        card.addEventListener("mousemove", function (e) {
+            var rect = card.getBoundingClientRect();
+            card.style.setProperty("--mx", (e.clientX - rect.left) + "px");
+            card.style.setProperty("--my", (e.clientY - rect.top) + "px");
+        });
+    });
 
     navToggle.addEventListener("click", function () {
         var open = navLinks.classList.toggle("is-open");
