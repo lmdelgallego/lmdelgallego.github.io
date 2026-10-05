@@ -113,12 +113,20 @@
     window.addEventListener("resize", updateScrollProgress);
     updateScrollProgress();
 
-    /* ---- cursor spotlight on cards ---- */
+    /* ---- cursor spotlight on cards (rAF-throttled: mousemove outpaces frames) ---- */
     Array.prototype.forEach.call(document.querySelectorAll(".skill-tile, .commit__card"), function (card) {
+        var pending = false;
+        var lastEvent = null;
         card.addEventListener("mousemove", function (e) {
-            var rect = card.getBoundingClientRect();
-            card.style.setProperty("--mx", (e.clientX - rect.left) + "px");
-            card.style.setProperty("--my", (e.clientY - rect.top) + "px");
+            lastEvent = e;
+            if (pending) return;
+            pending = true;
+            requestAnimationFrame(function () {
+                var rect = card.getBoundingClientRect();
+                card.style.setProperty("--mx", (lastEvent.clientX - rect.left) + "px");
+                card.style.setProperty("--my", (lastEvent.clientY - rect.top) + "px");
+                pending = false;
+            });
         });
     });
 
